@@ -11,8 +11,8 @@
 <body>
     <div class="weather-app">
     <header>
-        <form>
-            <input type="search" placeholder="Enter a city..." required  class="search-input-form"/>
+        <form id="search-form">
+            <input type="search" placeholder="Enter a city..." required id="search-input" class="search-input-form"/>
             <input type="submit" value="Search" class="search-input-button">
         </form>
     </header>
@@ -21,7 +21,7 @@
         <div class="weather-app-data">
         <section>
         <div class="weather-app-city">
-            <h1>Cape Town</h1>
+            <h1 id="city">Cape Town</h1>
         </div>
         
         <div class="weather-app-emoji">☀️</div>
@@ -55,5 +55,7 @@
          <a href="https://the-weather-app-gamma.vercel.app/" target="_blank">Vercel</a>
     </footer>
     </div>
+
+    <script src="src/weather.js"></script>
 </body>
 </html>
