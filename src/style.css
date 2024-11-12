@@ -73,8 +73,20 @@ margin: 20px 0;
 }
 
 .weather-app-temperature{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     font-size: 60px;
     font-weight: 600;
+}
+
+.temperature-unit {
+    font-size: 26px;
+    margin-left: 4px;
+    vertical-align: baseline;
+    position: relative;
+    bottom: -12px;
+    color: #333;
 }
 
 .weather-app-description{
