@@ -12,14 +12,46 @@ searchFormElement.addEventListener("submit", handleSearchSubmit);
 function refreshWeather(response){
     console.log(response);
 let temperatureElement = document.querySelector("#weather-app-temperature");
-   
-    let cityElement = document.querySelector("#city");
-
+   let cityElement = document.querySelector("#city");
     let temperature = Math.round(response.data.temperature.current);
     let city=response.data.city;
-
     cityElement.innerHTML=city;
     temperatureElement.innerHTML=`${temperature}<sub class="temperature-unit">°C</sub>`;
+
+     let descriptionElement = document.querySelector("#description");
+     let humidityElement = document.querySelector("#humidity");
+     let windSpeedElement=document.querySelector("#wind-speed")
+     descriptionElement.innerHTML = response.data.condition.description;
+    humidityElement.innerHTML=`${response.data.temperature.humidity}%`;
+    windSpeedElement.innerHTML=`${response.data.wind.speed} km/h`;
+
+    let timeElement=document.querySelector("#time");
+    let date=new Date(response.data.time*1000);
+    timeElement.innerHTML=formatDate(date);
+
+    let emojiElement=document.querySelector("#emoji");
+    emojiElement.innerHTML=`<img src="${response.data.condition.icon_url}" class="weather-app-emoji" />`;
+}
+
+function formatDate(date) {
+    let minutes=date.getMinutes();
+    let hours=date.getHours();
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    let day=days[date.getDay()];
+
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+
+    return `${day} ${hours}:${minutes}`;
 }
 
 function searchCity(city) {
@@ -28,5 +60,5 @@ function searchCity(city) {
     axios.get(apiUrl).then(refreshWeather)
 }
 
-searchCity("Cape Town")
+searchCity("Thohoyandou")
 

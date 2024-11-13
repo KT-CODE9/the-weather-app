@@ -24,24 +24,28 @@
             <h1 id="city"></h1>
         </div>
         
-        <div class="weather-app-emoji"></div>
+        <div class="weather-app-emoji" id="emoji"></div>
 
         <div class="weather-app-temperature" id="weather-app-temperature">
             <span class="temperature-value"></span>
           <span class="temperature-unit">°C</span>
         </div>
 
-        <div class="weather-app-description">
+        <div class="weather-app-description" id="description">
             <p></p>
         </div>
 
        <div class="weather-app-details">
     <p>
-        <span class="day">Monday 14:32</span>
+        <span class="day" id="time"></span>
         <span class="divider">|</span>
-        <span class="wind">Wind💨: 14km/h</span>
+        <span class="wind">Wind:
+             <span id="wind-speed">14km/h</span>
+    </span>
         <span class="divider">|</span>
-        <span class="humidity">Humidity: 66%</span>
+        <span class="humidity">Humidity: 
+            <span id="humidity">%</span>
+        </span>
     </p>
 </div>
 
