@@ -99,26 +99,31 @@ margin-bottom: -10px;
 }
 
 .weather-app-details{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     font-size: 14px;
-    opacity: 0.7;
-    margin-top: 10px;
+    margin: 0;
+    padding: 10px 0;
+    line-height: 1.6;
+    text-align: center;
     
 }
 
 .weather-app-details .divider {
-    padding: 30px 0 0 0; 
-    line-height: 1.5;
+    margin: 0 10px ;
+    
     color: rgba(0, 0, 0, 0.6);
 }
 
 .weather-forecast {
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 10px;
     flex-wrap: nowrap; 
     overflow-x: auto; 
     gap: 15px; 
-    
+    margin-bottom: 15px;
 }
 
 .weather-forecast-date{

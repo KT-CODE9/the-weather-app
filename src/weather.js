@@ -60,5 +60,31 @@ function searchCity(city) {
     axios.get(apiUrl).then(refreshWeather)
 }
 
-searchCity("Thohoyandou")
+searchCity("Thohoyandou");
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days= ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml="";
+
+  
+  days.forEach(function(day) {
+    
+    forecastHtml = forecastHtml + `
+    <div class="weather-forecast-day">
+        <div class="weather-forecast-date">${day}</div>
+        <div class="weather-forecast-icon">☀️</div>
+        <div class="weather-forecast-temperatures">
+            <div class="weather-forecast-high-temperature">15°C</div>
+            <div class="weather-forecast-low-temperature">9°C</div>
+        </div>
+        </div>
+`;
+   });
+
+   forecastElement.innerHTML=forecastHtml;
+
+};
+
+displayForecast();
