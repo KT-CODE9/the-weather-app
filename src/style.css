@@ -110,6 +110,17 @@ margin-bottom: -10px;
     
 }
 
+
+.weather-app-details .humidity-value,
+.weather-app-details .wind-speed-value {
+    color: #3498bd;
+    font-weight: bold;
+}
+
+.weather-app-details .time {
+    color: #2c3e50;
+}
+
 .weather-app-details .divider {
     margin: 0 10px ;
     
