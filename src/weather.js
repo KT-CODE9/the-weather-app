@@ -31,7 +31,9 @@ let temperatureElement = document.querySelector("#weather-app-temperature");
 
     let emojiElement=document.querySelector("#emoji");
     emojiElement.innerHTML=`<img src="${response.data.condition.icon_url}" class="weather-app-emoji" />`;
-}
+     
+    getForecast(response.data.city);
+  }
 
 function formatDate(date) {
     let minutes=date.getMinutes();
@@ -57,16 +59,26 @@ function formatDate(date) {
 function searchCity(city) {
     let apiKey = "3aa7ceoceb04ta4430a8733bf6be036f";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-    axios.get(apiUrl).then(refreshWeather)
+    axios.get(apiUrl).then(refreshWeather);
+
+    getForecast(city);
 }
 
 searchCity("Thohoyandou");
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "3aa7ceoceb04ta4430a8733bf6be036f";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+  console.log(apiUrl);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
 
   let days= ["Tue", "Wed", "Thu", "Fri", "Sat"];
-  let forecastHtml="";
+  let forecastHtml = "";
 
   
   days.forEach(function(day) {
@@ -87,4 +99,4 @@ function displayForecast() {
 
 };
 
-displayForecast();
+displayForecast(Thohoyandou);
